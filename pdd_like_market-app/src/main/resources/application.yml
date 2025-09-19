@@ -1,0 +1,5 @@
+spring:
+  config:
+    name: pdd_like_market-app
+  profiles:
+    active: dev
