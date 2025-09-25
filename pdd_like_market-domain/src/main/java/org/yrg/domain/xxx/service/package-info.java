@@ -1,1 +1,0 @@
-package org.yrg.domain.xxx.service;

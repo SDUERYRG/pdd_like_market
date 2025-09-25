@@ -1,0 +1,1 @@
+package org.yrg.domain.activity.service;
