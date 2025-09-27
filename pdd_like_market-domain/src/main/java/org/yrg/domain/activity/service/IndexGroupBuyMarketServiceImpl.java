@@ -14,13 +14,17 @@ public class IndexGroupBuyMarketServiceImpl implements IIndexGroupBuyMarketServi
     @Resource
     private DefaultActivityStrategyFactory defaultActivityStrategyFactory;
 
+    /*
+     * @description 首页营销试算
+     */
     @Override
     public TrialBalanceEntity indexMarketTrial(MarketProductEntity marketProductEntity) throws Exception {
 
+        //返回一个RootNode类型
         StrategyHandler<MarketProductEntity, DefaultActivityStrategyFactory.DynamicContext, TrialBalanceEntity> strategyHandler = defaultActivityStrategyFactory.strategyHandler();
 
         strategyHandler.apply(marketProductEntity, new DefaultActivityStrategyFactory.DynamicContext());
 
-        return null;
+        return strategyHandler.apply(marketProductEntity, new DefaultActivityStrategyFactory.DynamicContext());
     }
 }

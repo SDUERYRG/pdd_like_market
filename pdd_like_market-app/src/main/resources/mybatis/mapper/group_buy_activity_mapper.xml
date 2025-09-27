@@ -6,6 +6,9 @@
         <id column="id" property="id"/>
         <result column="activity_id" property="activityId"/>
         <result column="activity_name" property="activityName"/>
+        <result column="source" property="source"/>
+        <result column="channel" property="channel"/>
+        <result column="goods_id" property="goodsId"/>
         <result column="discount_id" property="discountId"/>
         <result column="group_type" property="groupType"/>
         <result column="take_limit_count" property="takeLimitCount"/>
@@ -14,8 +17,8 @@
         <result column="status" property="status"/>
         <result column="start_time" property="startTime"/>
         <result column="end_time" property="endTime"/>
-        <result column="tag_id" property="tagId"/>
         <result column="tag_scope" property="tagScope"/>
+        <result column="tag_id" property="tagId"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
@@ -27,8 +30,9 @@
     <select id="queryValidGroupBuyActivity" parameterType="org.yrg.infrastructure.dao.po.GroupBuyActivity"
             resultMap="dataMap">
         select
-            activity_id, activity_name, discount_id, group_type, take_limit_count,
-            target, valid_time, status, start_time, end_time, tag_id, tag_scope
+            activity_id,activity_name,source,channel,goods_id,
+            discount_id, group_type, take_limit_count,target,valid_time,status,
+            start_time,end_time,tag_id,tag_scope
         from group_buy_activity
         where source = #{source} and channel = #{channel}
         order by id desc
